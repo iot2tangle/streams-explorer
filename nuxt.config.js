@@ -6,8 +6,8 @@ export default {
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    titleTemplate: '%s - iota2tangle-frontend',
-    title: 'iota2tangle-frontend',
+    titleTemplate: '%s - streams-explorer',
+    title: 'streams-explorer',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },

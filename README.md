@@ -1,4 +1,4 @@
-# iota2tangle-frontend
+# streams-explorer
 
 ## Build Setup
 
