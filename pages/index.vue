@@ -2,7 +2,7 @@
   <v-row justify="center" align="center">
     <v-col cols="12" sm="8" md="6">
       <v-card>
-        <v-card-title class="headline"> streams-explorer</v-card-title>
+        <v-card-title class="headline"> I2T Streams Explorer</v-card-title>
         <v-card-text>
           <v-form ref="form">
             <v-text-field

@@ -10,8 +10,9 @@ export default {
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    titleTemplate: '%s - streams-explorer',
-    title: 'streams-explorer',
+    titleTemplate: '%s - I2T Streams Explorer',
+    title: 'I2T Streams Explorer',
+    description: 'An Explorer for IOTA Streams.',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
