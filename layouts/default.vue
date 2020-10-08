@@ -94,8 +94,12 @@ export default {
 
 
 
-<style scoped>
+<style>
 .logo {
   height: 32px;
+}
+
+body {
+  font-family: 'Poppins', sans-serif !important;
 }
 </style>
