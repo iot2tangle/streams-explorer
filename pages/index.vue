@@ -75,7 +75,7 @@ export default {
     allowSpaces: false,
     max: 80,
     model:
-      "1c6fddc2f0344892403ebc4fb6b94c4b308147c9fddb6340a27c89b7c4a28c390000000000000000",
+      "98bf096faa7048fd2238fc5573c6ecbeec1612fbcc7590f84094eb52e0dbf7570000000000000000",
   }),
   computed: {
     rules() {
