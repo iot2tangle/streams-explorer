@@ -119,7 +119,7 @@ export default {
         // );
 
         res = await this.$axios
-          .$get("http://localhost:8585/decode_channel/" + this.model, {
+          .$get(process.env.baseUrl + "/decode_channel/" + this.model, {
             headers: {
               "Content-Type": "text/plain",
             },
