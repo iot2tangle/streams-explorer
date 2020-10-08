@@ -48,11 +48,25 @@
               <v-list-item-subtitle
                 >Device ID: {{ entry.device }}</v-list-item-subtitle
               >
-              <div v-for="(item, index) in entry.xdk2mam" :key="index">
-                <p>{{ item.sensor }}</p>
-                <pre>{{ item.data }}</pre>
-              </div>
-            </v-list-item-content>
+                <v-card
+                  v-for="(item, index) in entry.iot2tangle"
+                  :key="index"
+                  class="mx-auto"
+                  outlined
+                >
+                  <v-list-item three-line>
+                    <v-list-item-content>
+                      <div class="overline mb-4">
+                        {{
+                          item.sensor
+                        }}
+                      </div>
+                      <pre>{{ item.data }}</pre>
+
+                    </v-list-item-content>
+                  </v-list-item>
+                </v-card>
+ƒ            </v-list-item-content>
           </v-list-item>
         </v-card>
       </v-card>
@@ -129,6 +143,7 @@ export default {
 
             if (response.status == "Success") {
               this.data_entries = response.messages.map((x) => JSON.parse(x));
+            console.log(this.data_entries);
             }
             this.loading = false;
           });
