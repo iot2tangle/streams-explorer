@@ -30,45 +30,44 @@
           height="8"
         ></v-progress-linear>
 
-        <v-card
-          v-for="(entry, index) in data_entries"
-          :key="index"
-          class="mx-auto"
-          outlined
-        >
-          <v-list-item three-line>
-            <v-list-item-content>
-              <div class="overline mb-4">
-                {{
-                  $moment(entry.timestamp * 1000).format(
-                    "MMMM Do YYYY, hh:mm:ss"
-                  )
-                }}
-              </div>
-              <v-list-item-subtitle
-                >Device ID: {{ entry.device }}</v-list-item-subtitle
-              >
-                <v-card
-                  v-for="(item, index) in entry.iot2tangle"
-                  :key="index"
-                  class="mx-auto"
-                  outlined
-                >
-                  <v-list-item three-line>
-                    <v-list-item-content>
-                      <div class="overline mb-4">
-                        {{
-                          item.sensor
-                        }}
-                      </div>
-                      <pre>{{ item.data }}</pre>
-
-                    </v-list-item-content>
-                  </v-list-item>
-                </v-card>
-ƒ            </v-list-item-content>
-          </v-list-item>
-        </v-card>
+        <v-expansion-panels>
+          <v-expansion-panel
+            v-for="(entry, index) in data_entries"
+            :key="index"
+          >
+            <v-expansion-panel-header> {{
+                        $moment(entry.timestamp * 1000).format(
+                          "MMMM Do YYYY, hh:mm:ss"
+                        )
+                      }} </v-expansion-panel-header>
+            <v-expansion-panel-content>
+              <v-card class="mx-auto" outlined>
+                <v-list-item three-line>
+                  <v-list-item-content>
+                    <v-list-item-subtitle
+                      >Device ID: {{ entry.device }}</v-list-item-subtitle
+                    >
+                    <v-card
+                      v-for="(item, index) in entry.iot2tangle"
+                      :key="index"
+                      class="mx-auto"
+                      outlined
+                    >
+                      <v-list-item three-line>
+                        <v-list-item-content>
+                          <div class="overline mb-4">
+                            {{ item.sensor }}
+                          </div>
+                          <pre>{{ item.data }}</pre>
+                        </v-list-item-content>
+                      </v-list-item>
+                    </v-card>
+                  </v-list-item-content>
+                </v-list-item>
+              </v-card>
+            </v-expansion-panel-content>
+          </v-expansion-panel>
+        </v-expansion-panels>
       </v-card>
     </v-col>
   </v-row>
@@ -143,7 +142,7 @@ export default {
 
             if (response.status == "Success") {
               this.data_entries = response.messages.map((x) => JSON.parse(x));
-            console.log(this.data_entries);
+              console.log(this.data_entries);
             }
             this.loading = false;
           });
