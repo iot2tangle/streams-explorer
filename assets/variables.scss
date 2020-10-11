@@ -3,8 +3,9 @@
 // The variables you want to modify
 // $font-size-root: 20px;
 
-
-$body-font-family: 'Poppins';
-$heading-font-family: 'Poppins';
+$body-font-family: "Montserrat", "sans-serif";
+$heading-font-family: "Montserrat", "sans-serif";
 $font-size-root: 18px;
-@import '~vuetify/src/styles/styles.sass';
+$btn-letter-spacing: 0;
+$list-item-padding: 0;
+@import "~vuetify/src/styles/styles.sass";

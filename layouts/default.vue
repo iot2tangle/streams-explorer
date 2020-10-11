@@ -1,105 +1,150 @@
 <template>
-  <v-app dark>
-    <v-navigation-drawer
-      v-model="drawer"
-      :mini-variant="miniVariant"
-      :clipped="clipped"
-      fixed
-      app
-    >
-      <v-list>
-        <v-list-item
-          v-for="(item, i) in items"
-          :key="i"
-          :to="item.to"
-          router
-          exact
-        >
-          <v-list-item-action>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title v-text="item.title" />
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
+  <v-app dark flat>
     <v-app-bar
       :clipped-left="clipped"
+      color="white"
+      elevate-on-scroll
+      flat
       fixed
       app
     >
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <img class="logo" src="~/assets/i2t-logo.png" />
+      <v-app-bar-nav-icon
+        v-show="$vuetify.breakpoint.smAndDown"
+        @click.stop="drawer = !drawer"
+      />
+
+      <img class="logo" src="~/assets/i2t-explorer-logo.png" />
+
       <v-spacer />
+
+      <div v-show="$vuetify.breakpoint.mdAndUp">
+        <v-btn
+          v-for="(item, index) in items"
+          :key="index"
+          :href="item.href"
+          target="_blank"
+          text
+        >
+          <strong>{{ item.title }}</strong>
+        </v-btn>
+      </div>
     </v-app-bar>
-    <v-main>
+
+    <v-main color="red">
       <v-container>
         <nuxt />
       </v-container>
     </v-main>
+
     <v-navigation-drawer
-      v-model="rightDrawer"
-      :right="right"
+      v-show="$vuetify.breakpoint.smAndDown"
+      v-model="drawer"
       temporary
       fixed
     >
-      <v-list>
-        <v-list-item @click.native="right = !right">
-          <v-list-item-action>
-            <v-icon light>
-              mdi-repeat
-            </v-icon>
-          </v-list-item-action>
-          <v-list-item-title>Switch drawer (click me)</v-list-item-title>
+      <v-list class="drawer">
+        <v-list-item
+          v-for="(item, index) in items"
+          :key="index"
+          @click.native="right = !right"
+        >
+          <v-btn :href="item.href" text>
+            <strong>{{ item.title }}</strong>
+          </v-btn>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-footer
-      :absolute="!fixed"
-      app
-    >
-      <span>&copy; {{ new Date().getFullYear() }}</span>
+
+    <v-footer :absolute="!fixed" app>
+      <v-container>
+        <v-row justify="center">
+          <img class="logo" src="~/assets/i2t-explorer-logo.png" />
+        </v-row>
+        <v-row
+          v-show="$vuetify.breakpoint.smAndDown"
+          justify="center"
+          v-for="(item, index) in items"
+          :key="index"
+        >
+          <div>
+            <v-btn :href="item.href" target="_blank" text>
+              <strong>{{ item.title }}</strong>
+            </v-btn>
+          </div>
+        </v-row>
+        <v-row v-show="$vuetify.breakpoint.mdAndUp" justify="center">
+          <div class="link-container">
+            <v-btn
+              :href="item.href"
+              target="_blank"
+              text
+              v-for="(item, index) in items"
+              :key="index"
+            >
+              <strong>{{ item.title }}</strong>
+            </v-btn>
+          </div>
+        </v-row>
+        <v-row justify="center">
+          <p class="copyright-text">
+            &copy; Copyright {{ new Date().getFullYear() }}
+          </p>
+        </v-row>
+      </v-container>
     </v-footer>
   </v-app>
 </template>
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       clipped: false,
       drawer: false,
       fixed: false,
       items: [
         {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/'
+          title: "iot2tangle.io",
+          href: "https://iot2tangle.io"
         },
         {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
+          title: "I2THub",
+          href: "https://github.com/iot2tangle"
+        },
+        {
+          title: "Donate",
+          href: "https://iot2tangle.io"
         }
       ],
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'Vuetify.js'
-    }
+      title: "Vuetify.js"
+    };
   }
-}
+};
 </script>
-
-
 
 <style>
 .logo {
-  height: 32px;
+  height: 42px;
 }
 
 body {
-  font-family: 'Poppins', sans-serif !important;
+  font-family: "Montserrat", sans-serif !important;
+}
+
+.drawer {
+  margin-top: 50px;
+}
+
+.link-container {
+  margin-top: 10px;
+}
+
+.copyright-text {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #a1a1a1;
 }
 </style>
