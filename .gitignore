@@ -90,3 +90,6 @@ sw.*
 
 # Vim swap files
 *.swp
+
+# README.md assets directory
+ghassets
