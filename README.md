@@ -39,3 +39,7 @@ $ yarn generate
 Create a `.env` file by renaming `.env.example`.
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+
+## Screenshot
+
+![Streams Explorer](ghassets/Screenshot_2020-10-16_Streams_Explorer.png)
