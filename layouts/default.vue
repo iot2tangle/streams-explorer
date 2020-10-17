@@ -12,8 +12,9 @@
         v-show="$vuetify.breakpoint.smAndDown"
         @click.stop="drawer = !drawer"
       />
-
-      <img class="logo" src="~/assets/i2t-explorer-logo.png" />
+      <nuxt-link to="/">
+        <img class="logo" src="~/assets/i2t-explorer-logo.png" />
+      </nuxt-link>
 
       <v-spacer />
 
