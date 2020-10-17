@@ -1,5 +1,3 @@
-import colors from "vuetify/es5/util/colors";
-
 export default {
   // use this for different base routes
   // router: {
@@ -7,7 +5,10 @@ export default {
   // },
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
   ssr: false,
-
+  server: {
+    port: process.env.PORT || 3000, // default: 3000
+    host: process.env.HOST || 'localhost' // default: localhost
+  },
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     titleTemplate: "%s - I2T Streams Explorer",
