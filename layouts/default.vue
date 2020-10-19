@@ -111,10 +111,6 @@ export default {
         {
           title: "I2THub",
           href: "https://github.com/iot2tangle"
-        },
-        {
-          title: "Donate",
-          href: "https://iot2tangle.io"
         }
       ],
       miniVariant: false,
