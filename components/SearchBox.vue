@@ -49,7 +49,7 @@ export default {
   mounted() {
     this.model =
       this.$route.params.channel ||
-      "df627a565c9f9673a5113c1a8fa5568c36aeb7618c6c6d0db72d58a1574f0fb40000000000000000:023199038f8760ed6d3344d1";
+      "64e592476ed7619d04526f6360f150d4bce63046511dde3f8665e5aec6b51ffc0000000000000000:78829daa792010edd2c7dbfb";
   },
   computed: {
     rules() {
